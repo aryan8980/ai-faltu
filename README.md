@@ -241,6 +241,48 @@ print("the ans is: ",end='')
 Answer = minMax(cd,nodeV,maxT,src,td)
 print(Answer)
 
+**alpha beta (prac 4)
+
+import math
+
+def alpha_beta(depth, node_index, is_max, values, alpha, beta, max_depth):
+    
+    if depth == max_depth:
+        return values[node_index]
+
+    if is_max:  
+        best = -math.inf
+        for i in range(2):  
+            val = alpha_beta(depth + 1, node_index * 2 + i, False, values, alpha, beta, max_depth)
+            best = max(best, val)
+            alpha = max(alpha, best)
+            if beta <= alpha:  
+                break
+        return best
+    else:  #
+        best = math.inf
+        for i in range(2):
+            val = alpha_beta(depth + 1, node_index * 2 + i, True, values, alpha, beta, max_depth)
+            best = min(best, val)
+            beta = min(beta, best)
+            if beta <= alpha:  
+                break
+        return best
+
+
+values = [2, 8, 3, 1, 6, 9, 8, 9, 3, 10, 2, 14, 16, 8, 15, 18]
+
+max_depth = int(math.log(len(values), 2))
+
+
+alpha = -math.inf
+beta = math.inf
+
+
+result = alpha_beta(0, 0, True, values, alpha, beta, max_depth)
+print("The optimal value is:", result)
+
+
 
 fuzzy set union intersection(prac 5)
 "Fuzzy set union and compliment relation"

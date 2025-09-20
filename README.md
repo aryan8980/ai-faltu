@@ -35,7 +35,8 @@ else:
     print("wrong solution")
 
 
-prac 1 ( magic sqaure)
+**prac 1 ( magic sqaure)**
+
 "magic square"
 magic_square=[[0,0,0,0,0],
               [0,0,0,0,0],
@@ -107,7 +108,8 @@ for r in magic_square:
     print(r)
     
 
-bfs sequence (prac 2)
+**bfs sequence (prac 2)**
+
 "bfs sequence (breadth first search)"
 from collections import deque
 def bfs_seq(graph,start):
@@ -138,8 +140,40 @@ start_node='a'
 bfs_se= bfs_seq(example_graph,start_node)
 print(f"path from {start_node}: {bfs_se}")
 
+**dfs algo (prac 2)**
 
-a* star algo (prac 3)
+def dfs(graph, start):
+    stack = [start]
+    visited = set()
+    path = []
+
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            path.append(vertex)
+            visited.add(vertex)
+            for neighbor in reversed(graph.get(vertex, [])):
+                stack.append(neighbor)
+    return path
+
+ex_graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+start_node = 'A'
+result_path = dfs(ex_graph, start_node)
+if result_path:
+    print(f"Path from {start_node} : {result_path}")
+else:
+    print(f"No path found from {start_node} : {result_path}")
+
+
+**a star algo (prac 3)**
 "heuristic search "
 "step 1- create a heuristic function"
 "step 2- create a graph"
@@ -215,7 +249,7 @@ def get_neighbors(v):
         return None
 a_algo('a','h')
 
-log function minimax(prac 4)
+**log function minimax(prac 4)**
 "log function minimax function"
 import math
 def minMax(cd,node,maxt,src,td):
@@ -241,7 +275,7 @@ print("the ans is: ",end='')
 Answer = minMax(cd,nodeV,maxT,src,td)
 print(Answer)
 
-**alpha beta (prac 4)
+**alpha beta (prac 4)**
 
 import math
 
@@ -284,7 +318,7 @@ print("The optimal value is:", result)
 
 
 
-fuzzy set union intersection(prac 5)
+**fuzzy set union intersection(prac 5)**
 "Fuzzy set union and compliment relation"
 
 A=dict()
@@ -311,7 +345,7 @@ for A_key, B_key in zip(A,B):
 print("Union of A and B: ",AuniB)
 print("Intersection of A and B: ",AintB)
 
-min-max composition (prac6)
+**min-max composition (prac6)**
 "min-max composition"
 
 import numpy as np
@@ -328,7 +362,7 @@ r1 = np.array([[0.2, 0.5], [0.7, 0.9]])
 r2 = np.array([[0.4, 0.3], [0.6, 0.1]])
 print(maxMin(r1, r2))
 
-max-product composition (prac 6)
+**max-product composition (prac 6)**
 
 
 "max-product composition"
@@ -348,7 +382,7 @@ r2=np.array(([0.4,0.3],[0.6,0.1]))
 
 print(maxProduct(r1,r2))
 
-max-average composition(prac 6)
+**max-average composition(prac 6)**
 
 "max-average composition"
 
@@ -365,7 +399,7 @@ r1= np.array(([0.2,0.5],[0.7,0.9]))
 r2=np.array(([0.4,0.3],[0.6,0.1]))
 print(str(maxAvg(r1,r2)))
 
-Matlab Code: (prac 8,9)
+**Matlab Code: (prac 7,8)**
 
 fuzzy controller washing machine: 
 w = readfis("mamdanitype1.fis"); 
@@ -381,7 +415,7 @@ distance=input("provide distance: ");
 o=evalfis([distance, speed], q) 
 disp=(["answer is: " num2str(0)])
 
-NLTK (prac 10):
+**NLTK (prac 10):**
 
 just remember this code dont do anything:
 
@@ -450,7 +484,7 @@ by adding harmful substances. Pollution causes an imbalance."
  print("Word Frequency:", counts)
 
 
- Neural Network(prac 11)
+ **Neural Network(prac 11)**
 
 
  from numpy import random, exp, array, dot
